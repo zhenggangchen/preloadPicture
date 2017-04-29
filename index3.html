@@ -41,6 +41,7 @@
     </p>
 </div>
 <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/preload.js"></script>
 
 <script type="text/javascript">
     var imgs = [
@@ -64,10 +65,22 @@
         'http://45.34.137.202:8080/comicdata/12307/1/17.jpg'
 
     ]
-    var len = imgs.length, count = 0,index=0;
-    load();
+
+
+
+    var len = imgs.length, index=0;//count = 0,
+
+
+    $.preload(imgs,{
+        order:'ordered'
+    });
+
+
+
+
+    //load();
     //有序预加载
-    function load() {
+    /*function load() {
         var imgObj = new Image();
         $(imgObj).on('load error', function () {
             if (count >= len) {
@@ -79,7 +92,7 @@
             count++;
         });
         imgObj.src = imgs[count];
-    }
+    }*/
 
     //添加按钮事件
     $(".btn").on('click', function () {
